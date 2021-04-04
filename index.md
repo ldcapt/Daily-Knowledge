@@ -6,14 +6,9 @@
 
 - 🌱 I’m currently learning HTML, CSS and JavaScript
 
-<hr>
+---
 
 
-<div style="">
 ### Content
 
 - [Day 1] - [Asyn / Await in JavaScript](Week%201/)
-
-
-
-</div>
