@@ -1,18 +1,38 @@
 # [Asyn / Await in JavaScript](https://viblo.asia/p/giai-thich-ve-asyncawait-javascript-trong-10-phut-1VgZvBn7ZAw)
 
 
-- **Async / Await là?**
-   + Một tính năng của JS giúp chúng ta làm việc với các hàm bất đồng bộ theo cách thú vị hơn và dễ hiểu hơn. Nó được xây dựng trên `Promises` và tương thích với tất cả các Promise dựa trên API
+## **Async / Await là?**
++ Một tính năng của JS giúp chúng ta làm việc với các hàm bất đồng bộ theo cách thú vị hơn và dễ hiểu hơn. Nó được xây dựng trên `Promises` và tương thích với tất cả các Promise dựa trên API
 
-- **Async - Khai báo một hàm bất đồng bộ**
-   + Tự động biến đổi một hàm thông thường thành một `Promise`.
-   + Khi gọi tới hàm `async` nó sẽ xử lý mọi thứ và được trả về kết quả trong hàm của nó
-   + `Asyn` cho phép sử dụng `await`
+## **Async - Khai báo một hàm bất đồng bộ**
++ Tự động biến đổi một hàm thông thường thành một `Promise`.
++ Khi gọi tới hàm `async` nó sẽ xử lý mọi thứ và được trả về kết quả trong hàm của nó
++ `Asyn` cho phép sử dụng `await`
 
-- **Await - Tạm dừng việc thực thi các hàm async**
-   + Khi được đặt trước một `Promise`, nó sẽ đợi cho đến khi Promise kết thúc và trả về kết quả
-   + `Await` chỉ làm việc với `Promises`, nó không hoạt động với `callbacks()`
-   + `Await` chỉ có thể được sử dụng bên trong các function `async`
+## **Await - Tạm dừng việc thực thi các hàm async**
++ Khi được đặt trước một `Promise`, nó sẽ đợi cho đến khi Promise kết thúc và trả về kết quả
++ `Await` chỉ làm việc với `Promises`, nó không hoạt động với `callbacks()`
++ `Await` chỉ có thể được sử dụng bên trong các function `async`
+
+## **Khi có Async / Await có làm cho promises lỗi thời?**
+
+- Không hoàn toàn như vậy. Khi làm việc với Async / Await, thật ra chúng ta vẫn đang sử dụng ngầm Promises. Vì thế, kể cả khi đang sử dụng Async / Await mà có sự hiểu biết tốt về Promises sẽ rất tốt cho chúng ta.
+
+- Ngoài ra, có những  trường hợp mà Async / Await không sử dụng được mà chúng ta phải sử dụng Promises. Ví dụ như khi chúng ta cần gọi nhiều thao tác bất đồng bộ và chờ cho tất cả chúng thực hiện xong. Nếu thử làm điều này với async và await, điều gì sẽ xảy ra?
+
+```js
+async function getABC () {
+  let A = await getValueA(); // getValueA take 2 second to finish
+  let B = await getValueB(); // getValueB take 4 second to finish
+  let C = await getValueC(); // getValueC take 3 second to finish
+
+  return A*B*C;
+}
+```
+
+- Mỗi lần gọi tới hàm await sẽ đợi cho đến khi hàm await trước đó kết thúc. Vì các wait sẽ đợi và thực hiện từng cái một, toàn bộ chức năng sẽ mất 9 giây để thực hiện xong hàm từ đầu đến cuối (2 + 3 + 4)
+
+- Đây không phải là một giải pháp tối ưu vì A, B và C không phụ thuộc vào nhau, chúng ta có thể lấy chúng cùng một lúc và thời gian chờ sẽ giảm bớt đi
 
 
 ### Sử dụng callbacks() để làm việc với bất đồng bộ trong javascript
@@ -20,3 +40,5 @@
 - Nhược điểm:
    + Các `callbacks()` phải chờ nhau thực hiện -> Thời gian hoàn thành sẽ kéo dài hơn
    + Viết các `callbacks()` lồng nhau khiến cho chương trình rắc rối và khó bảo trì.
+
+
