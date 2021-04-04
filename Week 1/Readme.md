@@ -44,7 +44,53 @@ async function getABC () {
   return results.reduce((total,value) => total * value);
 }
 ```
-- Bằng cách này, thời gian thực thi sẽ mất ít hơn, hàm getValueA và getValueC sẽ thực hiện xong trước khi getValueB xong. Thay vì phải mất 9 giây để chờ từng hàm trả về thì sẽ chỉ mất 4 giây.
+- Bằng cách này, thời gian thực thi sẽ mất ít hơn, hàm `getValueA()` và `getValueC()` sẽ thực hiện xong trước khi `getValueB()` xong. Thay vì phải mất 9 giây để chờ từng hàm trả về thì sẽ chỉ mất 4 giây.
+
+
+## **Xử lý lỗi trong Async / Await**
+
+- Một điều hay ho khác về `Async` / `Await` là nó cho phép chúng ta bắt các lỗi bằng cách sử dụng `try` / `catch`. Chúng ta chỉ cần để các `await call` vào trong khối `try` / `catch` :
+```js
+async function doSomethingAsync () {
+  try {
+    // This async call may fail.
+    let result = await someAsyncCall();
+  }
+  catch (error) {
+    // If it does we will catch the error here.
+  }
+}
+```
+- Vế `catch` sẽ xử lý các lỗi gây ra bởi các hàm bất đồng bộ hoặc bất kỳ lỗi nào chúng ta có thể gặp phải bên trong khối try.
+
+- Trong một vài tình huống, chúng ta cũng có thể bắt các lỗi khi đang thực hiện `function async`. Vì tất cả các hàm `async` đều trả về `Promises`, chúng ta chỉ cần gọi thêm hàm `.catch()` khi gọi chúng
+
+```js
+// Async function without a try / catch block.
+async function doSomethingAsync () {
+  // This async call may fail.
+  let result = await someAsyncCall();
+  return result;
+}
+
+// We catch the error upon calling the function
+doSomethingAsync()
+    .then(successHandler)
+    .catch(errorHandler);
+```
+
+- Dựa vào tình huống cụ thể, chúng ta sẽ sử dụng `try / catch` hoặc `.catch()` để bắt và xử lý lỗi. Tuy nhiên chúng ta không nên sử dụng cả 2 cùng một lúc vì có thể dẫn đến các vấn đề không mong muốn.
+
+## **Hỗ trợ trình duyệt**
+
+- `Asyn` / `Await` có thể sử dụng trong hầu hết các trình duyệt chính, ngoại trừ `IE11` - tất cả các trình duyệt sẽ nhận ra mã `async` / `await` của bạn mà không cần các thư viện bên ngoài.
+
+## **Kết luận**
+
+- Với việc bổ sung Async / Await trong ngôn ngữ JavaScript có một bước nhảy vọt về khả năng dễ đọc và dễ sử dụng cho người mới bắt đầu lập trình JavaScript và người đã có kinh nghiệm
+
+- Link tham khảo : https://viblo.asia/p/giai-thich-ve-asyncawait-javascript-trong-10-phut-1VgZvBn7ZAw
+
 
 ---
 
