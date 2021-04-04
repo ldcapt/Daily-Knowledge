@@ -34,6 +34,19 @@ async function getABC () {
 
 - Đây không phải là một giải pháp tối ưu vì A, B và C không phụ thuộc vào nhau, chúng ta có thể lấy chúng cùng một lúc và thời gian chờ sẽ giảm bớt đi
 
+- Trong trường hợp như thế này, sử dụng `Promise` sẽ thích hợp hơn. Để gửi tất cả các yêu cầu cùng lúc, chúng ta sử dụng `Promise.all()`. Việc sử dụng `Promise.all()` sẽ đảm bảo chúng ta có tất cả các kết quả trước khi tiếp tục thực thi code, tuy nhiên việc gọi đến các hàm bất đồng bộ sẽ được chạy song song mà không phải tuần tự từng cái một.
+
+```js
+async function getABC () {
+  // Promise.all() allow us to send all requests at the same time.
+  let result = await Promise.all([ getValueA, getValueB, getValueC ]);
+  
+  return results.reduce((total,value) => total * value);
+}
+```
+- Bằng cách này, thời gian thực thi sẽ mất ít hơn, hàm getValueA và getValueC sẽ thực hiện xong trước khi getValueB xong. Thay vì phải mất 9 giây để chờ từng hàm trả về thì sẽ chỉ mất 4 giây.
+
+---
 
 ### Sử dụng callbacks() để làm việc với bất đồng bộ trong javascript
 
