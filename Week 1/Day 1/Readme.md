@@ -3,7 +3,7 @@
 ---
 
 # [Danh sách từ khóa]
-1. [Promise](./Week%201/Day%202)
+1. [Promise](.\Week%201\Day%202)
 
 ---
 
