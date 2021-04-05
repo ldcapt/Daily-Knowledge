@@ -3,7 +3,7 @@
 ---
 
 # Danh sách từ khóa
-1. [Promise](https://github.com/ldcapt/Daily-Knowledge/tree/gh-pages/Week%201/Day%202)
+1. [Promise](/../Day%202)
 
 ---
 
