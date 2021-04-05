@@ -81,3 +81,20 @@ function onError(err) {
 
 api.getUser('pikalong').then(onSuccess, onError)
 ```
+
+Phương thức `.then(onSuccess, onError)` nhận vào 2 hàm: `onSuccess` được gọi khi **promise** hoàn thành và `onError` được gọi khi có lỗi xảy ra. Bên trong tham số `onSuccess` bạn có thể trả về một giá trị đồng bộ. Ví dụ như giá trị số, chuỗi, `null`, `undefined`, array, object hoặc một **promise object** khác. Các giá trị bất đồng bộ sẽ được bọc bên trong một Promise, cho phép bạn kết nối (chaining) nhiều **promise** lại với nhau.
+
+```js
+promise() 
+  .then(() => {
+    return 'foo';
+  })
+  .then(result1 => {
+    console.log(result1); // 'foo'
+    return anotherPromise();
+  })
+  .then(result2 => console.log(result2)) // `result2` là kết quả của anotherPromise()
+  .catch(err => {
+    console.log(err);
+  })
+```
