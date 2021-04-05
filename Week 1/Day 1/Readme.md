@@ -1,6 +1,10 @@
 # [Asyn / Await in JavaScript](https://viblo.asia/p/giai-thich-ve-asyncawait-javascript-trong-10-phut-1VgZvBn7ZAw)
 
 
+# [Danh sách từ khóa]
+1. [Promise](Week%201/Day%202)
+
+
 ## **Async / Await là?**
 + Một tính năng của JS giúp chúng ta làm việc với các hàm bất đồng bộ theo cách thú vị hơn và dễ hiểu hơn. Nó được xây dựng trên `Promises` và tương thích với tất cả các Promise dựa trên API
 

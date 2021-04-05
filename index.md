@@ -11,4 +11,5 @@
 
 ### Content
 
-- [Day 1] - [Asyn / Await in JavaScript](Week%201/)
+- [Day 1] - [Asyn / Await in JavaScript](Week%201/Day%201)
+- [Day 2] - [Promise Trong Java Script](Week%201/Day%202)
