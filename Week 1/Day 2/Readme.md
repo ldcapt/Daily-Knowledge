@@ -1,6 +1,6 @@
-# [Promise in JavaScript](https://ehkoo.com/bai-viet/tat-tan-tat-ve-promise-va-async-await#header)
+# [**Promise in JavaScript**](https://ehkoo.com/bai-viet/tat-tan-tat-ve-promise-va-async-await#header)
 
-
+---
 
 # Danh sách từ khóa
 1. [AJAX](#)
