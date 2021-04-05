@@ -56,3 +56,28 @@ Trong đó `executor` là một hàm có 2 tham số:
 - `reject` là hàm sẽ được gọi khi có lỗi xảy ra
 
 
+Ví dụ:
+```js
+api.getUser = function(username) {
+  // Hàm api.getUser() trả về một promise object
+  http.get(`/users/${username}`, (err, result) = > {
+    // Nếu có lỗi bên trong callback, gọi đến hàm `reject()`
+    if (err) return reject(err);
+    
+    // Ngược lại, dùng `resolve()` để trả về dữ liệu cho `.then()`
+    resolve(result);
+  })
+}
+```
+Như vậy `api.getUser()` sẽ trả về một **promise object**. Chúng ta có thể truy xuất đến kết quả trả về bằng phương thức `.then()` như sau
+```js
+function onSuccess(user) {
+  console.log(user);
+}
+
+function onError(err) {
+  console.error(err)
+}
+
+api.getUser('pikalong').then(onSuccess, onError)
+```
