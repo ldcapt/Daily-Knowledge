@@ -1,4 +1,4 @@
-# [Day 3] - [MySQL vs JDBC](https://freetuts.net/ket-noi-mysql-bang-java-jdbc-driver-2790.html)
+# [**MySQL vs JDBC**](https://freetuts.net/ket-noi-mysql-bang-java-jdbc-driver-2790.html)
 
 # Danh sách từ khóa
 
