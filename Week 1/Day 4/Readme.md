@@ -1,9 +1,9 @@
-# [Day 4] - [**Tomcat**](https://blog.itnavi.com.vn/apache-tomcat-la-gi/)
+[**Tomcat**](https://blog.itnavi.com.vn/apache-tomcat-la-gi/)
 
 # Danh mục từ khóa
 
 
-## Tổng quan kiến thức về `Apache`
+## Tổng quan kiến thức về Apache
 
 - Khái niệm
 
